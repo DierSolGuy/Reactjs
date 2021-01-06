@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=q, initial-scale=1.0">
+    <!--Babel Script to covert JSX into browser format-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  
+    <!--React Library-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script> 
+    <!--React DOM Library-->
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+
+   <!--Creating React Component-->
+
+   <!--Javascript Block starts from below-->
+    <script type="text/babel">
+        class App extends React.Component{
+
+            // Adding State Component
+            // Defining State Property
+            state = {
+
+                // Thses are Javascript objects i.e Declaaring any value inside {},
+                //which contents UI State.
+
+                name: 'Sourish', // Name Property
+                age: 30 //  Age Property
+            }
+            // A Class based Component must have inside atleast one function 
+            //and that function is called as render().
+
+            // Function for Handling the Click button operation
+            handleClick(e){
+                console.log(e.target);
+            }
+
+            // Function for Handling the hover Operation button operation
+            handleMouseOver(e){
+                console.log(e);
+            }
+
+            // Function for Handling Copy Operation of some text from website
+            handleCopy(e){
+                console.log("Try your Contents buddy!!!");
+            }
+
+
+           render() {
+               // The Return value is JSX template.
+               // As the return value is more than one-line. So it is declared in parenthesis.
+               return (
+                   <div className="app-content">
+
+                        <h1> Hello Kudos!! </h1>
+                       
+                        <p>My Name is: {this.state.name}</p> 
+                        <p>Age: {this.state.age}</p>
+                        
+                        <button onClick={this.handleClick}> Click Me </button>
+                        <button onMouseOver={this.handleMouseOver}> Hover Me</button>
+                        <p onCopy={this.handleCopy}> I am Good </p>               
+                    </div>
+               )
+           } 
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script> <!--Javascript Block ends-->
+    
+
+</body>
+</html>
